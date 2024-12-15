@@ -2,8 +2,8 @@ addEventListener('fetch', (event) => event.respondWith(handler(event)))
 
 const ROBOTS_TEXT = `User-agent: *
 Allow: /$
-Allow: /1
-Allow: /2
+Allow: /1$
+Allow: /2$
 Disallow: /`
 
 async function handler (event) {
