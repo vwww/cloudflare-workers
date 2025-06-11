@@ -13,7 +13,14 @@ async function handler (event) {
     return new Response(ROBOTS_TEXT)
   }
 
-  url.pathname = `/${+url.pathname.slice(1) + 1}`
+  const n = +url.pathname.slice(1)
+  const nNext =
+    Number.isFinite(n)
+    && n >= Number.MIN_SAFE_INTEGER
+    && n <= Number.MAX_SAFE_INTEGER
+      ? Math.floor(n) + 1
+      : 0
+  url.pathname = `/${nNext}`
 
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
